@@ -266,6 +266,7 @@
     const exitBtn = document.getElementById('exit-ar');
 
     startBtn.addEventListener('click', () => {
+      document.querySelector('.hamburger-menu').style.display = 'block';
       info.style.display = 'none';
       arContainer.style.display = 'block';
       exitBtn.style.display = 'flex';
@@ -324,6 +325,7 @@
     });
 
     exitBtn.addEventListener('click', () => {
+      document.querySelector('.hamburger-menu').style.display = 'none';
       arContainer.style.display = 'none';
       arContainer.innerHTML = '';
       info.style.display = 'block';
