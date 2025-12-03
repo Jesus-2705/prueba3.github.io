@@ -338,7 +338,13 @@
       }
     });
   </script>
-
+  <script>
+    document.querySelectorAll('.menu__item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.getElementById('menu__ham').checked = false;
+      });
+    });
+  </script>
 </body>
 </html>
 
