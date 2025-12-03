@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Espermatogénesis AR</title>
-  <link rel="stylesheet" href="style.css">
+
   <!-- A-Frame y AR.js -->
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/fcor/arjs-gestures@master/gesture-detector.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/fcor/arjs-gestures@master/gesture-handler.js"></script>
+
+  <!-- Model viewer (no es JS tuyo, solo un componente) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
     body {
-      background-color:  #192338;
+      background-color: #192338;
       color: #000;
       font-family: Arial, sans-serif;
       margin: 0;
@@ -78,68 +82,167 @@
       display: none;
     }
 
-    #exit-ar {
+    /* ------ MENÚ HAMBURGUESA INTEGRADO ------ */
+
+    .hamburger-menu {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      padding: 12px 18px;
-      background-color: rgba(0, 0, 0, 0.65);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1em;
+      top: 20px;
+      left: 20px;
+      z-index: 2000;
+    }
+
+    .menu__btn {
+      display: inline-block;
+      width: 30px;
+      height: 22px;
       cursor: pointer;
-      backdrop-filter: blur(5px);
+      position: relative;
+    }
+
+    .menu__btn span,
+    .menu__btn span::before,
+    .menu__btn span::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: #8fb3e2;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .menu__btn span::before { content: ""; top: -8px; }
+    .menu__btn span::after { content: ""; top: 8px; }
+
+    #menu__ham { display: none; }
+
+    #menu__ham:checked + .menu__btn span {
+      transform: rotate(45deg);
+    }
+    #menu__ham:checked + .menu__btn span::before {
+      top: 0; transform: rotate(90deg);
+    }
+    #menu__ham:checked + .menu__btn span::after {
+      top: 0; opacity: 0;
+    }
+
+    /* Panel lateral */
+    .menu__box {
+      position: fixed;
+      top: 0;
+      left: -240px;
+      width: 220px;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      padding: 60px 20px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      transition: left .4s;
+      z-index: 1500;
+    }
+
+    #menu__ham:checked ~ .menu__box {
+      left: 0;
+    }
+
+    .menu__item {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .menu__item:hover {
+      background: #2980b9;
+    }
+
+    /* ------- SECCIONES DE MODELOS SIN JS ------- */
+
+    .section {
       display: none;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      padding: 80px 20px;
+      background: #8fb3e2;
+      border-radius: 15px;
+      max-width: 850px;
+      width: 90%;
+      margin-top: 40px;
     }
 
-    #exit-ar:hover {
-      background-color: rgba(255, 0, 0, 0.7);
-      transform: scale(1.05);
+    :target {
+      display: block;
     }
 
-    #exit-ar svg { width: 18px; height: 18px; fill: white; }
+    .exit-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #2980b9;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
   </style>
+
 </head>
+
 <body>
 
+  <!-- MENÚ HAMBURGUESA -->
+  <div class="hamburger-menu">
+    <input id="menu__ham" type="checkbox" />
+    <label class="menu__btn" for="menu__ham">
+      <span></span>
+    </label>
+
+    <ul class="menu__box">
+      <li><a class="menu__item" href="#modelo1">Túbulos seminíferos</a></li>
+      <li><a class="menu__item" href="#modelo2">Recorrido del espermatozoide</a></li>
+      <li><a class="menu__item" href="#modelo3">Espermatogénesis</a></li>
+      <li><a class="menu__item" href="#modelo4">Epidídimo</a></li>
+    </ul>
+  </div>
+
+  <!-- INFO PRINCIPAL -->
   <div id="info">
-      <h1>Espermatogénesis</h1>
-  <div class="titulo-con-imagenes">
-    <img src="imagenes/Logoembrio.jpeg" alt="Logo Embrio">
+    <h1>Espermatogénesis</h1>
+    <div class="titulo-con-imagenes">
+      <img src="imagenes/Logoembrio.jpeg" alt="Logo Embrio">
     </div>
     <h2>Museo de Embriología</h2>
     <h3>Universidad Autónoma de Chihuahua</h3>
-    <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación. Este campo científico es fundamental para comprender cómo se forman los organismos y las estructuras celulares básicas que dan origen a la vida.</p>
-    <p>Con esta aplicación usted podrá obtener una experiencia de realidad aumentada donde podrá ver modelos 3D animados de la espermatogénesis. Simplemente inicie la cámara y apunte al marcador Hiro para visualizar el contenido.</p
+    <p>La embriología es el estudio del desarrollo...</p>
+
     <button id="start-ar">Iniciar AR</button>
   </div>
-  <!--MENÚ DE HAMBURGUESITA-->
-  <div class="hamburger-menu">
-      <input id="menu__ham" type="checkbox" />
-      <label class="menu__btn" for="menu__ham" >
-        <span></span>
-      </label>
-  
-      <ul class="menu__box">
-        <li><a class="menu__item" href="#" id="redsem-btn">Túbulos seminiferos</a></li>
-        <li><a class="menu__item" href="#" id="recorrido-btn">Recorrido del espermatozoide</a></li>
-        <li><a class="menu__item" href="#" id="espergen-btn">Espermatogénesis</a></li>
-        <li><a class="menu__item" href="#" id="epididimo-btn">Epidídimo</a></li>
-      </ul>
-    </div>
-  <button id="exit-ar">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M18.3 5.71a1 1 0 0 0-1.42 0L12 10.59 7.11 5.7a1 1 0 0 0-1.42 1.42L10.59 12l-4.9 4.89a1 1 0 0 0 1.42 1.42L12 13.41l4.89 4.9a1 1 0 0 0 1.42-1.42L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
-    </svg>
-    Salir
-  </button>
 
+  <!-- SECCIONES SIN JS (solo HTML + CSS) -->
+  <div id="modelo1" class="section">
+    <h2>Túbulos seminíferos</h2>
+    <model-viewer src="models/model1.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <p>Información aquí...</p>
+    <a href="#" class="exit-btn">Salir</a>
+  </div>
+
+  <div id="modelo2" class="section">
+    <h2>Recorrido del espermatozoide</h2>
+    <model-viewer src="models/model2.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <a href="#" class="exit-btn">Salir</a>
+  </div>
+
+  <div id="modelo3" class="section">
+    <h2>Espermatogénesis</h2>
+    <model-viewer src="models/model3.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <a href="#" class="exit-btn">Salir</a>
+  </div>
+
+  <div id="modelo4" class="section">
+    <h2>Epidídimo</h2>
+    <model-viewer src="models/model4.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <a href="#" class="exit-btn">Salir</a>
+  </div>
   <div id="ar-container"></div>
 
   <script>
