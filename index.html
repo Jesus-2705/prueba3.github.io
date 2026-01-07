@@ -160,18 +160,22 @@
     }
 
     /* ------- SECCIONES DE MODELOS SIN JS ------- */
-
+    *, *::before, *::after {
+      box-sizing: border-box;
+     }  
     .section {
       display: none;
-      padding: 40px 20px;
+      padding: 20px;
       background: #8fb3e2;
       border-radius: 15px;
       max-width: 850px;
-      width: 90%;
-      margin: 40px auto;
-      box-sizing: border-box;
+      width: 100%;
+      margin: 20px auto;  
       outline: 3px solid red;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
+
     .section:target {
       display: block;
     }
@@ -188,6 +192,9 @@
       overflow-wrap: break-word;
       text-align: justify;
     }
+    .section > * {
+      max-width: 100%;
+    }
     .exit-btn {
       display: inline-block;
       margin-top: 20px;
@@ -196,6 +203,9 @@
       padding: 12px 20px;
       border-radius: 10px;
       text-decoration: none;
+    }
+    * {
+      outline: 1px solid red;
     }
   </style>
 
