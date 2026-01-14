@@ -161,9 +161,7 @@
 
     /* ------- SECCIONES DE MODELOS SIN JS ------- */
     .section {
-      visibility: hidden;
-      position: absolute;
-      left: -9999px;
+      display:none;
       padding: 40px 20px;
       background: #8fb3e2;
       border-radius: 15px;
@@ -173,15 +171,11 @@
       max-height: 85svh;
       min-height: 70svh;
       overflow-y: auto;
-      margin: 40px auto;
-      margin: 6svh auto 40px;
-      scroll-margin-top: 90px; 
+      margin: 120px auto 40px auto;
       box-sizing: border-box;
     }
     .section:target {
-      visibility: visible;
-      position: static;
-      top: 4svh;
+      display:block;
     }
    .section model-viewer {
       width: 100%;
