@@ -198,6 +198,32 @@
       border-radius: 10px;
       text-decoration: none;
     }
+    .info-box{
+      position: relative;
+      margin-top: 20px;
+      padding: 20px;
+      background: #8fb3e2;
+      border-radius: 12px;
+      overflow: hidden;
+       }
+    .info-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("imagenes/Logoembrio.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 220px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    }
+    .info-box > * {
+    position: relative;
+    z-index: 1;
+    }
+
+      
   </style>
 
 </head>
@@ -243,6 +269,7 @@
       camera-target="0m 0m 0m"
       model-position="15m 0m 0m">
     </model-viewer>
+    <div class="info-box">
     <p>La producción y maduración inicial de los espermatozoides dependen de una compleja arquitectura microscópica dentro del testículo. Entre sus estructuras esenciales, la red seminífera o rete testis ocupa un papel crucial como nexo funcional entre la espermatogénesis que ocurre en los túbulos seminíferos y las etapas posteriores de maduración en el epidídimo. Su importancia va más allá del simple transporte: representa un sistema de transición, filtración y acondicionamiento indispensable para la viabilidad espermática.
   El testículo se organiza en lobulillos delimitados por septos conectivos derivados de la túnica albugínea. Dentro de cada lobulillo se encuentran los túbulos seminíferos, lugar exclusivo donde se lleva a cabo la espermatogénesis. Estos túbulos, que albergan a las células germinales y a las células de Sertoli, convergen hacia estructuras más simples llamadas túbulos rectos, las cuales representan la salida directa del sistema productor de espermatozoides. Los túbulos rectos presentan una característica histológica distintiva: carecen de células germinales y están revestidos únicamente por células de Sertoli en su porción inicial, lo que marca la transición hacia conductos de naturaleza más conductiva que secretora.
   Los túbulos rectos desembocan en la red seminífera, localizada en el mediastino testicular, una región condensada de tejido conectivo dentro del testículo. Esta red está constituida por una malla de conductos interconectados revestidos por epitelio simple cúbico, el cual presenta microvellosidades y, ocasionalmente, cilios cortos. Tales características son fundamentales para facilitar el movimiento pasivo del fluido testicular y para crear un entorno fisiológico estable que preserve la integridad de los espermatozoides recién formados. En esta región los espermatozoides aún no tienen movilidad propia, por lo que dependen completamente del flujo de líquido secretado por las células de Sertoli y de la absorción progresiva de este fluido para concentrarlos adecuadamente.
@@ -260,6 +287,7 @@
   ● Tortora, G. J., & Derrickson, B. (2017). Principios de Anatomía y Fisiología (15.ª ed.). Wiley.
   ● Guyton, A. C., & Hall, J. E. (2021). Tratado de Fisiología Médica (14.ª ed.). Elsevier.
   ● Wein, A. J., Kavoussi, L. R., Partin, A. W., Peters, C. A. (2016). Campbell-Walsh Urología (11.ª ed.). Elsevier.</p>
+      </div>
     <a href="#" class="exit-btn">Salir</a>
   </div>
   
@@ -269,6 +297,7 @@
       <source src="videos/video uach r2.mp4" type="video/mp4">
       Tu navegador no soporta videos.
     </video>
+    <div class="info-box">
     <p>El transporte de los espermatozoides comienza profundamente en el tracto reproductor masculino, donde la maduración estructural y funcional del gameto está intrínsecamente ligada a su tránsito. La espermatogénesis ocurre en los túbulos seminíferos, y en este proceso las células espermáticas en desarrollo están unidas a las células de Sertoli. La espermatogonia tipo B, al entrar en el estadio de preleptoteno de la primera división meiótica, está situada basal a la barrera hemato-testicular (BHT), mientras que las espermátidas en estadios posteriores están fijas a la superficie apical de las células de Sertoli mediante complejos de adhesión. Para su liberación a la luz del túbulo seminífero, los complejos de adhesión de superficie se rompen. Esta degradación genera fragmentos de laminina que actúan sobre las proteínas de los complejos de unión estrecha de la BHT, rompiéndola apicalmente al espermatocito primario. Seguidamente, la testosterona, altamente concentrada en el túbulo seminífero, estimula la síntesis de nuevas proteínas de unión estrecha en el lado basal del espermatocito en preleptoteno, restaurando así la integridad de la BHT. Tras la espermiogénesis, el espermatozoide es maduro a nivel morfológico, pero es inmóvil e incapaz de fecundar un óvulo.
 A continuación, el líquido testicular los transporta de forma pasiva desde los túbulos seminíferos, pasando por los túbulos rectos y la red testicular, hasta la cabeza del epidídimo a través de los conductillos eferentes. El impulso inicial para este movimiento pasivo proviene de la presión del líquido generada en los túbulos seminíferos, asistida por las contracciones de las células mioides fuera de los túbulos seminíferos. El progreso es luego ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.
 El espermatozoide entra entonces en el conducto del epidídimo, un tubo muy contorneado que mide unos 6 metros en el humano, donde permanece aproximadamente 12 días. Este es el periodo crucial de maduración bioquímica. Durante esta fase, el espermatozoide adquiere una serie de capacidades y sufre cambios asociados a las glucoproteínas de la membrana plasmática de su cabeza. Estos cambios incluyen el aumento progresivo de la motilidad y de la capacidad para fertilizar el óvulo, la maduración del acrosoma, la reorganización molecular de la membrana plasmática, la adquisición de los receptores para las proteínas de la zona pelúcida, el aumento del enlace disulfuro entre las nucleoproteínas, la regionalización de los residuos glicosídicos de superficie, y la acumulación de residuos manosilados en la membrana plasmática periacrosómica. Es importante destacar que los espermatozoides carecen de movilidad durante su fase de almacenamiento en el epidídimo, pero en el momento en que alcanzan la cola ya son capaces de fecundar un óvulo.
@@ -279,6 +308,7 @@ Bibliografía
 •	Carlson BM. Embriología Humana Y Biología del Desarrollo. 6a ed. Elsevier; 2019.
 •	Moore KL, Persaud TVN, Torchia MG, editores. Embriología Clínica. 11a ed. Elsevier; 2020.
 </p>
+</div>
     <a href="#" class="exit-btn">Salir</a>
   </div>
 
@@ -288,6 +318,7 @@ Bibliografía
       <source src="videos/espermatogénesis.mp4" type="video/mp4">
       Tu navegador no soporta videos.
     </video>
+    <div class="info-box">
     <p> La Espermatogénesis es esa secuencia biológica continua y esencial donde las células germinales masculinas (espermatogonias) se transforman en espermatozoides maduros, listos para la fertilización. Este fenómeno ocurre dentro de los túbulos seminíferos del testículo, comenzando en la pubertad y manteniéndose toda la vida, durante un ciclo completo aproximadamente de 64 a 74 días. Su propósito principal es doble: primero, reducir a la mitad el número de cromosomas (de 2n a 1n) mediante la meiosis; segundo, modificar radicalmente la morfología de la célula para darle motilidad y capacidad enzimática de penetración.
 Fases Secuenciales
 La formación del espermatozoide se concreta en tres fases bien diferenciadas.
@@ -306,12 +337,14 @@ REFERENCIAS
 ● Sadler, T. W. (2017). Langman Embriología Médica con Orientación Clínica (13a ed.). Wolters Kluwer.
 ● Young, B., Heath, J. W., & Wheater, P. R. (2014). Wheater. Histología funcional: texto y atlas en color (6a ed.). Elsevier España.
 ● Ross, M. H., & Pawlina, W. (2020). Histología: Texto y atlas. Correlación con biología molecular y celular (8a ed.). Wolters Kluwer.</p>
+      </div>
     <a href="#" class="exit-btn">Salir</a>
   </div>
 
   <div id="modelo4" class="section">
     <h2>Epidídimo</h2>
     <model-viewer src="models/embriologia/EpididimoFinal2.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <div class="info-box">
     <p>El epidídimo es una estructura tubular, firme y alargada que se sitúa sobre la cara
 superior y el borde posterolateral del testículo. Presenta una configuración en
 forma de "C" o coma. Aunque externamente parece una estructura sólida, está
@@ -361,6 +394,7 @@ BIBLIOGRAFÍAS:
 ed.). Elsevier.
  Carlson, B. M. (2019). Embriología Humana y Biología del Desarrollo (6.ª ed.).
 Elsevier</p>
+      </div>
     <a href="#" class="exit-btn">Salir</a>
   </div>
   <div id="ar-container"></div>
