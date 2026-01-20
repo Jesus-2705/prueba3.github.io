@@ -222,6 +222,11 @@
     position: relative;
     z-index: 1;
     }
+    .menu-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 10px 0;
+    }
 
       
   </style>
@@ -238,10 +243,19 @@
     </label>
 
     <ul class="menu__box">
+      <li><a class="menu-section">Espermatogénesis</li>
       <li><a class="menu__item" href="#modelo1">Túbulos seminíferos</a></li>
       <li><a class="menu__item" href="#modelo2">Recorrido del espermatozoide</a></li>
       <li><a class="menu__item" href="#modelo3">Espermatogénesis</a></li>
       <li><a class="menu__item" href="#modelo4">Epidídimo</a></li>
+      
+      <li> class="menu-divider"></li>
+
+      <li><a class="menu-section">Ovogénesis</li>
+      <li><a class="menu__item" href="#modelo5">apartado1</a></li>
+      <li><a class="menu__item" href="#modelo6">apartado2</a></li>
+      <li><a class="menu__item" href="#modelo7">apartado3</a></li>
+      <li><a class="menu__item" href="#modelo8">apartado4</a></li>
     </ul>
   </div>
 
@@ -397,6 +411,14 @@ Elsevier</p>
       </div>
     <a href="#" class="exit-btn">Salir</a>
   </div>
+    <div id="modelo5" class="section">
+    <h2>1 de ovogénesis</h2>
+    <model-viewer src="models/embriologia/EpididimoFinal2.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <div class="info-box">
+    <p>Aqui va para lo primero de ovogénesis</p>
+      </div>
+    <a href="#" class="exit-btn">Salir</a>
+  </div>
   <div id="ar-container"></div>
   <button id="exit-ar" style="
     display:none;
@@ -411,6 +433,7 @@ Elsevier</p>
     box-shadow:0 4px 8px rgba(0,0,0,0.2);
     margin-top:20px;
   ">
+    
     Salir de AR
   </button>
   <script>
