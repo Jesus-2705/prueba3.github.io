@@ -582,6 +582,15 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
 
   } catch (error) {
     console.error("Error:", error);
+    rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /accesos/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
   }
 });
 </script>
