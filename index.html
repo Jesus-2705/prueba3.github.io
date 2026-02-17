@@ -13,25 +13,6 @@
 
   <style>
     body {
-      <div id="registro-container">
-  <h2>Registro de acceso</h2>
-  <p>El acceso queda registrado con fecha y hora.</p>
-
-  <form id="registroForm">
-    <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
-
-    <select id="ocupacion" required>
-      <option value="">¿A qué te dedicas?</option>
-      <option value="Estudiante">Estudiante</option>
-      <option value="Profesional de salud">Profesional de salud</option>
-      <option value="Docente">Docente</option>
-      <option value="Público general">Público general</option>
-    </select><br><br>
-
-    <button type="submit">Entrar a la experiencia</button>
-  </form>
-</div>
-      <div id="contenidoAR">
       background-color: #192338;
       color: #000;
       font-family: Arial, sans-serif;
@@ -257,6 +238,26 @@
 </head>
 
 <body>
+
+<div id="registro-container">
+  <h2>Registro de acceso</h2>
+
+  <form id="registroForm">
+    <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
+
+    <select id="ocupacion" required>
+      <option value="">¿A qué te dedicas?</option>
+      <option value="Estudiante">Estudiante</option>
+      <option value="Profesional de salud">Profesional de salud</option>
+      <option value="Docente">Docente</option>
+      <option value="Público general">Público general</option>
+    </select><br><br>
+
+    <button type="submit">Entrar</button>
+  </form>
+</div>
+
+<div id="contenidoAR" style="display:none;">
 
   <!-- MENÚ HAMBURGUESA -->
   <div class="hamburger-menu">
@@ -544,7 +545,6 @@ Elsevier</p>
         document.getElementById('menu__ham').checked = false;
       });
     });
-    </div>
   </script>
   <script type="module">
 
@@ -552,12 +552,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_MESSAGING_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyAjbhaqdE8XLeTlY1kaajTIAAeYYIvT3bg",
+  authDomain: "embriologia-947ae.firebaseapp.com",
+  projectId: "embriologia-947ae",
+  storageBucket: "embriologia-947ae.firebasestorage.app",
+  messagingSenderId: "1:474010141336:web:bd36aa8e1d5a17f1c506ed",
+  appId: "G-QMP8SHGZXN"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -584,9 +584,7 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
     console.error("Error:", error);
   }
 });
-
 </script>
-
 </body>
 </html>
 
