@@ -237,26 +237,6 @@
 
 </head>
 <script type="module">
-
-  <div id="registro-container">
-  <h2>Registro de acceso</h2>
-  <p>El acceso queda registrado con fecha y hora.</p>
-
-  <form id="registroForm">
-    <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
-
-    <select id="ocupacion" required>
-      <option value="">¿A qué te dedicas?</option>
-      <option value="Estudiante">Estudiante</option>
-      <option value="Doctor">Doctor</option>
-      <option value="Docente">Docente</option>
-      <option value="Público general">Público general</option>
-    </select><br><br>
-
-    <button type="submit">Entrar a la experiencia</button>
-  </form>
-</div>
-
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
@@ -274,13 +254,41 @@
     appId: "1:474010141336:web:bd36aa8e1d5a17f1c506ed",
     measurementId: "G-QMP8SHGZXN"
   };
+<div id="registro-container">
+  <h2>Registro de acceso</h2>
+  <p>El acceso queda registrado con fecha y hora.</p>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db= getFirestone(app);
+  <form id="registroForm">
+    <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
 
-  document.getElementById("registroForm").addEventListener("submit", async (e) => {
+    <select id="ocupacion" required>
+      <option value="">¿A qué te dedicas?</option>
+      <option value="Estudiante">Estudiante</option>
+      <option value="Doctor">Doctor</option>
+      <option value="Docente">Docente</option>
+      <option value="Público general">Público general</option>
+    </select><br><br>
+
+    <button type="submit">Entrar a la experiencia</button>
+  </form>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_AUTH_DOMAIN",
+  projectId: "TU_PROJECT_ID",
+  storageBucket: "TU_STORAGE_BUCKET",
+  messagingSenderId: "TU_MESSAGING_ID",
+  appId: "TU_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.getElementById("registroForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const nombre = document.getElementById("nombre").value;
@@ -294,17 +302,16 @@
       userAgent: navigator.userAgent
     });
 
-    // Oculta formulario
     document.getElementById("registro-container").style.display = "none";
-
-    // Muestra experiencia
     document.getElementById("contenidoAR").style.display = "block";
 
   } catch (error) {
     console.error("Error al guardar:", error);
   }
 });
+
 </script>
+
 <body>
 
   <!-- MENÚ HAMBURGUESA -->
